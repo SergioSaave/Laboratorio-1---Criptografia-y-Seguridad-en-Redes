@@ -1,6 +1,6 @@
 import sys
 from scapy.all import *
-from colorama import init, Fore
+# from colorama import init, Fore
 
 def decrypt_cesar(message, shift):
     decrypted_message = ""
@@ -28,14 +28,14 @@ packets = rdpcap(file_path)
 icmp_packets = [pkt for pkt in packets if ICMP in pkt and pkt[ICMP].type == 0]
 
 # Obtener el primer byte de los paquetes ICMP y concatenarlos
-message_bytes = b"".join([pkt[Raw].load[:1] for pkt in icmp_packets])
+message_bytes = b"".join([pkt[Raw].load[16:17] for pkt in icmp_packets])
 
-init()
-init(autoreset=True)
+# init()
+# init(autoreset=True)
 
 for shift in range(26):
     decrypted_message = decrypt_cesar(message_bytes.decode(), shift)
-    if(decrypted_message == "criptografia y seguridad en redes"): 
-        print( Fore.GREEN + f"{shift}: {decrypted_message}")
-    else: 
-        print(f"{shift}: {decrypted_message}")
+    # if(decrypted_message == "criptografia y seguridad en redes"): 
+    #     print( Fore.GREEN + f"{shift}: {decrypted_message}")
+    # else: 
+    print(f"{shift}: {decrypted_message}")

@@ -12,3 +12,8 @@ Al momento de realizar el ping del paso dos (Stealth), se podian visualizar el d
 ```
 icmp_packets = [pkt for pkt in packets if ICMP in pkt and pkt[ICMP].type == 0]
 ```
+
+
+### Cosas por arreglar o indicar
+mitm: hablar de la lectura del pcapng
+stealth payload x3

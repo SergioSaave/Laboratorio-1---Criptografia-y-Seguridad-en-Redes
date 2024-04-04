@@ -23,7 +23,6 @@ def descifrar_cesar(texto_cifrado, desplazamiento):
     return cifrar_cesar(texto_cifrado, -desplazamiento)
 
 if __name__ == "__main__":
-    print(sys.argv)
     if len(sys.argv) != 3:
         print("Mal escrito el corrimiento o palabra")
         sys.exit(1)
@@ -32,5 +31,4 @@ if __name__ == "__main__":
     desplazamiento = int(sys.argv[2])
     texto_cifrado = cifrar_cesar(texto_original, desplazamiento)
     texto_decifrado = descifrar_cesar(texto_cifrado, desplazamiento)
-    print("Texto cifrado:", texto_cifrado)
-    print("Texto decifrado:", texto_decifrado)
+    print(texto_cifrado)
